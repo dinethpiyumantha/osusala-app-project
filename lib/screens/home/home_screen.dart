@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:osusala/constraints.dart';
 import 'package:osusala/screens/home/components/card_button.dart';
+import 'package:osusala/screens/home/components/dropmenu.dart';
 
 // Statefull Home
 class HomeScreen extends StatefulWidget {
@@ -15,6 +16,13 @@ class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController animController;
   bool isMenuExpanded = false;
+  double _menuHeight = 0;
+
+  void _updateMenu() {
+    setState(() {
+      _menuHeight = (_menuHeight == 0) ? 90 : 0;
+    });
+  }
 
   @override
   void initState() {
@@ -43,21 +51,29 @@ class _HomeScreenState extends State<HomeScreen>
         toolbarHeight: 100,
         elevation: 0,
         flexibleSpace: SafeArea(
-          child: Center(
+          child: Padding(
+            padding: EdgeInsets.all(0),
             child: Container(
-              child: IconButton(
-                color: oWhiteColor,
-                icon: AnimatedIcon(
-                  icon: AnimatedIcons.menu_close,
-                  progress: animController,
+              child: Center(
+                child: Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    color: oPrimaryColor,
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  child: IconButton(
+                    color: oWhiteColor,
+                    icon: AnimatedIcon(
+                      icon: AnimatedIcons.menu_close,
+                      progress: animController,
+                    ),
+                    onPressed: () {
+                      _updateMenu();
+                      changeMenuIcon();
+                    },
+                  ),
                 ),
-                onPressed: () {
-                  changeMenuIcon();
-                },
-              ),
-              decoration: BoxDecoration(
-                color: oPrimaryColor,
-                borderRadius: BorderRadius.circular(50),
               ),
             ),
           ),
@@ -69,6 +85,7 @@ class _HomeScreenState extends State<HomeScreen>
           crossAxisCount: 2,
           staggeredTiles: const <StaggeredTile>[
             StaggeredTile.fit(2),
+            StaggeredTile.fit(2),
             StaggeredTile.extent(2, 50),
             StaggeredTile.extent(1, 140),
             StaggeredTile.extent(1, 140),
@@ -79,6 +96,61 @@ class _HomeScreenState extends State<HomeScreen>
             StaggeredTile.extent(2, 20),
           ],
           children: <Widget>[
+            AnimatedContainer(
+              padding:
+                  EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 10),
+              duration: Duration(milliseconds: 400),
+              height: _menuHeight,
+              decoration: BoxDecoration(
+                color: oWhiteColor,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(25),
+                  bottomRight: Radius.circular(25),
+                ),
+              ),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(5),
+                    child: SizedBox(
+                      width: 150,
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Row(
+                          children: [
+                            Icon(Icons.exit_to_app),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text('Sign out'),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(5),
+                    child: SizedBox(
+                      width: 150,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pushReplacementNamed('/about');
+                        },
+                        child: Row(
+                          children: [
+                            Icon(Icons.info),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text('About'),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
             Container(
               child: Image.asset('assets/images/testslide.png'),
             ),
@@ -154,5 +226,13 @@ class _HomeScreenState extends State<HomeScreen>
         ),
       ),
     );
+  }
+
+  void onMenuPressed() {
+    showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return Container();
+        });
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:osusala/constraints.dart';
+import 'package:osusala/screens/about.dart';
 import 'package:osusala/screens/home/home_screen.dart';
 import 'package:osusala/screens/location/location_map.dart';
 import 'package:osusala/screens/get_started/get_started.dart';
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
         '/': (context) => SplashScreen(),
         '/getst': (context) => GetStartedScreen(),
         '/home': (context) => HomeScreen(),
-        '/location': (context) => MapScreen()
+        '/location': (context) => MapScreen(),
+        '/about': (context) => About(),
       },
       theme: ThemeData(
         scaffoldBackgroundColor: oLightColor,

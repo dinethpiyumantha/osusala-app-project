@@ -17,6 +17,9 @@ const String defaltFontFamily = 'BioSans';
 const String sampleTextLorem =
     'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.';
 
+const String sampleShortTextLorem =
+    'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.';
+
 const String constMapStyle = '''  [{
     "featureType": "poi",
     "stylers": [

@@ -97,109 +97,253 @@ class _MapScreenState extends State<MapScreen> {
               changeMapMode();
             },
           ),
-          Container(
-            margin: EdgeInsets.only(left: 20, right: 20, bottom: 10, top: 80),
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            width: MediaQuery.of(context).size.width - 2 * 20,
-            height: 90,
-            decoration: BoxDecoration(
-              color: oWhiteColor,
-              boxShadow: [
-                BoxShadow(
-                  offset: Offset(2, 2),
-                  blurRadius: 5,
-                  color: oPrimaryColor.withOpacity(0.1),
-                )
-              ],
-              borderRadius: BorderRadius.circular(25),
-              border: Border.all(
-                width: 2,
-                color: oLightColor,
-              ),
-            ),
-            child: isLoading
-                ? Center(
-                    child: CircularProgressIndicator(),
-                  )
-                : Column(
-                    children: [
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          'Search OSUSALA Location',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            color: oSecondaryColor,
-                            fontFamily: defaltFontFamily,
-                            fontSize: 12,
-                          ),
-                        ),
-                      ),
-                      Autocomplete(
-                        optionsBuilder: (TextEditingValue textEditingValue) {
-                          if (textEditingValue.text.isEmpty) {
-                            return const Iterable<String>.empty();
-                          } else {
-                            return autoCompLocations.where((word) => word
-                                .toLowerCase()
-                                .contains(textEditingValue.text.toLowerCase()));
-                          }
-                        },
-                        fieldViewBuilder: (context, controller, focusNode,
-                            onEditingComplete) {
-                          return Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 0, vertical: 0),
-                            child: TextField(
-                              cursorColor: oSuccessColor,
-                              cursorWidth: 2.5,
-                              cursorRadius: Radius.circular(2),
+          Column(
+            children: <Widget>[
+              Container(
+                margin:
+                    EdgeInsets.only(left: 20, right: 20, bottom: 10, top: 80),
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                width: MediaQuery.of(context).size.width - 2 * 20,
+                height: 90,
+                decoration: BoxDecoration(
+                  color: oWhiteColor,
+                  boxShadow: [
+                    BoxShadow(
+                      offset: Offset(2, 2),
+                      blurRadius: 5,
+                      color: oPrimaryColor.withOpacity(0.1),
+                    )
+                  ],
+                  borderRadius: BorderRadius.circular(25),
+                  border: Border.all(
+                    width: 2,
+                    color: oLightColor,
+                  ),
+                ),
+                child: isLoading
+                    ? Center(
+                        child: CircularProgressIndicator(),
+                      )
+                    : Column(
+                        children: [
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Search OSUSALA Location',
                               textAlign: TextAlign.left,
                               style: TextStyle(
-                                height: 1.5,
+                                color: oSecondaryColor,
                                 fontFamily: defaltFontFamily,
-                                fontSize: 18,
-                              ),
-                              controller: controller,
-                              focusNode: focusNode,
-                              onEditingComplete: onEditingComplete,
-                              decoration: InputDecoration(
-                                contentPadding: EdgeInsets.zero,
-                                suffixIcon: Icon(
-                                  Icons.search,
-                                  color: oSuccessColor,
-                                ),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                  ),
-                                ),
+                                fontSize: 12,
                               ),
                             ),
-                          );
+                          ),
+                          Autocomplete(
+                            optionsBuilder:
+                                (TextEditingValue textEditingValue) {
+                              if (textEditingValue.text.isEmpty) {
+                                return const Iterable<String>.empty();
+                              } else {
+                                return autoCompLocations.where((word) => word
+                                    .toLowerCase()
+                                    .contains(
+                                        textEditingValue.text.toLowerCase()));
+                              }
+                            },
+                            fieldViewBuilder: (context, controller, focusNode,
+                                onEditingComplete) {
+                              return Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 0, vertical: 0),
+                                child: TextField(
+                                  cursorColor: oSuccessColor,
+                                  cursorWidth: 2.5,
+                                  cursorRadius: Radius.circular(2),
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    height: 1.5,
+                                    fontFamily: defaltFontFamily,
+                                    fontSize: 18,
+                                  ),
+                                  controller: controller,
+                                  focusNode: focusNode,
+                                  onEditingComplete: onEditingComplete,
+                                  decoration: InputDecoration(
+                                    contentPadding: EdgeInsets.zero,
+                                    suffixIcon: Icon(
+                                      Icons.search,
+                                      color: oSuccessColor,
+                                    ),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.width + 110),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width - 2 * 20,
+                  height: 40,
+                  child: ElevatedButton(
+                    onPressed: _onShowButtonPressed,
+                    child: Text('SHOW DETAILS'),
+                    style: ElevatedButton.styleFrom(
+                      primary: oSuccessColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12), // <-- Radius
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+      floatingActionButton: Padding(
+        padding: EdgeInsets.only(bottom: 70),
+        child: FloatingActionButton(
+          backgroundColor: oSuccessColor,
+          foregroundColor: oLightColor,
+          onPressed: () => _googleMapController.animateCamera(
+            CameraUpdate.newCameraPosition(_initialCameraPosition),
+          ),
+          elevation: 0,
+          child: const Icon(Icons.center_focus_strong),
+        ),
+      ),
+    );
+  }
+
+  void _onShowButtonPressed() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          color: Color(0xFF737373),
+          child: Container(
+            decoration: BoxDecoration(
+              color: oWhiteColor,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
+              ),
+            ),
+            child: Column(
+              children: <Widget>[
+                Center(
+                  child: SizedBox(
+                    height: 10,
+                    width: 100,
+                    child: Container(
+                      color: oLightColor,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(30),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.location_on,
+                        size: 50,
+                        color: oPrimaryColor,
+                      ),
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'KURUNEGALA Branch',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontFamily: defaltFontFamily,
+                                color: oPrimaryColor,
+                                fontSize: 18,
+                              ),
+                            ),
+                            Text(
+                              'Kurunegala',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontFamily: defaltFontFamily,
+                                color: oSecondaryColor,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ]),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 30, right: 30),
+                  child: Row(
+                    children: [
+                      RawMaterialButton(
+                        onPressed: () {
+                          Navigator.pop(context);
                         },
+                        elevation: 2.0,
+                        fillColor: oSuccessColor,
+                        child: Icon(Icons.call, color: oWhiteColor, size: 40),
+                        padding: EdgeInsets.all(15.0),
+                        shape: CircleBorder(),
+                      ),
+                      RawMaterialButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        elevation: 2.0,
+                        fillColor: oSuccessColor,
+                        child: Icon(Icons.email, color: oWhiteColor, size: 40),
+                        padding: EdgeInsets.all(15.0),
+                        shape: CircleBorder(),
+                      ),
+                      RawMaterialButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        elevation: 2.0,
+                        fillColor: oSuccessColor,
+                        child: Icon(Icons.assistant_direction,
+                            color: oWhiteColor, size: 40),
+                        padding: EdgeInsets.all(15.0),
+                        shape: CircleBorder(),
                       ),
                     ],
                   ),
-          )
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: oSuccessColor,
-        foregroundColor: oLightColor,
-        onPressed: () => _googleMapController.animateCamera(
-          CameraUpdate.newCameraPosition(_initialCameraPosition),
-        ),
-        elevation: 0,
-        child: const Icon(Icons.center_focus_strong),
-      ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+                  child: Text(
+                    sampleShortTextLorem,
+                    style: TextStyle(
+                      fontFamily: defaltFontFamily,
+                      color: oSecondaryColor,
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
