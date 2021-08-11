@@ -20,6 +20,8 @@ class _MapScreenState extends State<MapScreen> {
 
   late GoogleMapController _googleMapController;
 
+  Set<Marker> _markers = {};
+
   changeMapMode() {
     getJsonFile('assets/map_light.json').then(setMapStyle);
   }
@@ -30,6 +32,38 @@ class _MapScreenState extends State<MapScreen> {
 
   void setMapStyle(String style) {
     _googleMapController.setMapStyle(style);
+  }
+
+  late BitmapDescriptor mapMarker;
+
+  void setCustomMarker() async {
+    mapMarker = await BitmapDescriptor.fromAssetImage(
+        ImageConfiguration(), 'assets/images/mapmarker.png');
+  }
+
+  void setMarkers() {
+    setState(() {
+      _markers.add(Marker(
+        markerId: MarkerId('kurunegala'),
+        position: LatLng(7.482186775860767, 80.36035539711307),
+        infoWindow: InfoWindow(
+          title: 'KURUNEGALA Rajya Osusala',
+          snippet: '28 Bauddhaloka Mawatha, Kurunegala',
+          onTap: _onShowButtonPressed,
+        ),
+        icon: mapMarker,
+      ));
+
+      _markers.add(Marker(
+        markerId: MarkerId('Kandy'),
+        position: LatLng(7.292231803699652, 80.63239534427983),
+        infoWindow: InfoWindow(
+          title: '28 Bauddhaloka Mawatha, Kurunegala',
+          onTap: _onShowButtonPressed,
+        ),
+        icon: mapMarker,
+      ));
+    });
   }
 
   @override
@@ -65,6 +99,7 @@ class _MapScreenState extends State<MapScreen> {
   void initState() {
     super.initState();
     fetchAutoCompleteData();
+    setCustomMarker();
   }
 
   @override
@@ -94,8 +129,10 @@ class _MapScreenState extends State<MapScreen> {
             initialCameraPosition: _initialCameraPosition,
             onMapCreated: (GoogleMapController controller) {
               _googleMapController = controller;
+              setMarkers();
               changeMapMode();
             },
+            markers: _markers,
           ),
           Column(
             children: <Widget>[
@@ -347,3 +384,5 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 }
+
+// ALL Markers

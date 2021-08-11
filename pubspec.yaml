@@ -70,6 +70,7 @@ flutter:
     - assets/map_light.json
     - assets/locations.json
     - assets/images/devalgo.png
+    - assets/images/mapmarker.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

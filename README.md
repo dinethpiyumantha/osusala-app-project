@@ -1,5 +1,5 @@
 ### Education Purpose Only
-# osusala
+# osusala app
 
 A new Flutter project.
 
