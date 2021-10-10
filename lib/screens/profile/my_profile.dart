@@ -51,6 +51,10 @@ class MyProfile extends StatelessWidget {
                     borderSide: BorderSide.none,
                     borderRadius: BorderRadius.circular(50)),
                 labelText: 'Name',
+                suffixText: '*',
+                suffixStyle: TextStyle(
+                    color: Colors.red,
+                  ),
                 hintText: 'Your Name',
               ),
               
@@ -67,6 +71,10 @@ class MyProfile extends StatelessWidget {
                     borderSide: BorderSide.none,
                     borderRadius: BorderRadius.circular(50)),
                 labelText: 'NIC',
+                suffixText: '*',
+                suffixStyle: TextStyle(
+                    color: Colors.red,
+                  ),
                  hintText: 'Your NIC',
               ),
             ),
@@ -87,6 +95,10 @@ class MyProfile extends StatelessWidget {
                     borderRadius: BorderRadius.circular(50)
                     ),
                 labelText: 'Birthday',
+                suffixIcon:  const Icon(
+                    Icons.calendar_today
+                   
+                  ),
                  hintText: 'Your Birthday',
               ),
               
@@ -103,6 +115,10 @@ class MyProfile extends StatelessWidget {
                     borderSide: BorderSide.none,
                     borderRadius: BorderRadius.circular(50)),
                 labelText: 'Mobile',
+                suffixText: '*',
+                 suffixStyle: TextStyle(
+                    color: Colors.red,
+                  ),
                  hintText: 'Your Mobile No',
               ),
             ),
@@ -140,25 +156,44 @@ class MyProfile extends StatelessWidget {
             ),
  
 
-          Padding(
+      Padding(
                 padding: 
                     EdgeInsets.all(10.0),
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width - 2 * 20,
                   height: 40,
                   child: ElevatedButton(
-                    onPressed: _onShowButtonPressed,
-                    child: Text('SHOW DETAILS'),
+                    onPressed: () =>showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: const Text('Verification'),
+          content: const Text('Are you sure to save profile details?'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'Cancel'),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+              primary: Colors.purple,
+            ),
+              onPressed: () => Navigator.pop(context, 'OK'),
+              child: const Text('Save'),
+            ),
+          ],
+        ),
+      ),
+      child: const Text('SAVE DETAILS'),
+                 
                     style: ElevatedButton.styleFrom(
-                      primary: oSuccessColor,
+                      primary:oSuccessColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12), // <-- Radius
                       ),
-                    ),
+                    ), 
                   ),
                 ),
               ),
-
                Padding(
                 padding: 
                     EdgeInsets.all(10.0),
@@ -166,14 +201,35 @@ class MyProfile extends StatelessWidget {
                   width: MediaQuery.of(context).size.width - 2 * 20,
                   height: 40,
                   child: ElevatedButton(
-                    onPressed: _onShowButtonPressed,
-                    child: Text('DELETE PROFILE'),
+                    onPressed: () =>showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: const Text('Alert!'),
+          content: const Text('Are you sure to delete this profile?'),
+          actions: <Widget>[
+            TextButton(
+              
+              onPressed: () => Navigator.pop(context, 'Cancel'),
+              child: const Text('Cancel'),
+            ),
+           TextButton(
+              style: TextButton.styleFrom(
+              primary: Colors.red,
+            ),
+              onPressed: () => Navigator.pop(context, 'OK'),
+              child: const Text('Delete'),
+            ),
+          ],
+        ),
+      ),
+      child: const Text('DELETE PROFILE'),
+                 
                     style: ElevatedButton.styleFrom(
                       primary:oPrimaryColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12), // <-- Radius
                       ),
-                    ),
+                    ), 
                   ),
                 ),
               ),
@@ -182,5 +238,8 @@ class MyProfile extends StatelessWidget {
   }
 
 
-   void _onShowButtonPressed(){}
+ void _onShowButtonPressed() {
+
+
+   }
 }

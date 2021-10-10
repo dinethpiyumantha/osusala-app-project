@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:osusala/constraints.dart';
+import 'package:osusala/screens/offers/models/data.dart';
 
 
 class OffersScreen extends StatelessWidget {
@@ -94,8 +95,24 @@ class OffersScreen extends StatelessWidget {
 
 SizedBox(height: 25),
 Container(
-  child: Image.asset('assets/images/filter.png',width:25,
-  height: 25 ),
+  
+  child:
+  IconButton(
+  icon: Image.asset('assets/images/filter.png',width:25,height: 25),
+  iconSize: 50,
+  onPressed: ()   =>showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+  title: Container(child: Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Text('FILTER OFFERS',textAlign: TextAlign.center,style: TextStyle(color: Colors.white,),),
+  ),color: oSuccessColor,),
+  content: setupAlertDialoadContainer(context),
+)
+      ), 
+),
+  
+  // Image.asset('assets/images/filter.png',width:25,height: 25 ),
   alignment: Alignment(0.9, 0.2)),
           SizedBox(height: 15.0),
           
@@ -129,7 +146,7 @@ Container(
             TextFormField(
               decoration: InputDecoration(
                 filled: true,
-                fillColor: Colors.indigo[100],
+                fillColor: Colors.teal[100],
                 border: OutlineInputBorder(
                     borderSide: BorderSide.none,
                     borderRadius: BorderRadius.circular(50)),
@@ -242,7 +259,39 @@ SizedBox(height: 45.0),
                           ]))
                 ]))));
   }
+Widget setupAlertDialoadContainer(context) {
+  return Column(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Container(
+        color: Colors.teal[100],
+        height: 175.0, // Change as per your requirement
+        width: 300.0, // Change as per your requirement
+        child: ListView.builder(
 
+          shrinkWrap: true,
+          itemCount: 3,
+          itemBuilder: (BuildContext context, int index) {
+            return ListTile(
+              title: Card(child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(filterMenuList[index],textAlign: TextAlign.center),
+              )),
+            );
+          },
+        ),
+      ),
+      Align(
+        alignment: Alignment.bottomRight,
+        child: FlatButton(
+
+          onPressed: (){
+          Navigator.pop(context);
+        },child: Text("Cancel"),),
+      )
+    ],
+  );
+}
   
   void _onShowButtonPressed() {}
 }
