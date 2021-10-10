@@ -152,7 +152,13 @@ class _HomeScreenState extends State<HomeScreen>
               ),
             ),
             Container(
-              child: Image.asset('assets/images/testslide.png'),
+              child: GestureDetector(
+                child: Image.asset('assets/images/testslide.png'),
+                onTap: () {
+                  Navigator.pushNamed(context, '/news');
+                  print('NEWS SCREEN');
+                },
+              ),
             ),
             Center(
               child: Row(
