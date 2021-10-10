@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 import 'package:osusala/constraints.dart';
+import 'package:osusala/screens/get_started/models/data.dart';
 
 class GetStartedScreen extends StatelessWidget {
   const GetStartedScreen({Key? key}) : super(key: key);
@@ -64,14 +65,8 @@ class GetStartedScreen extends StatelessWidget {
                                     Container(
                                       padding: EdgeInsets.all(0),
                                       height: 300,
-                                      child: Text(
-                                        "Hello",
-                                        style: TextStyle(
-                                          fontFamily: defaltFontFamily,
-                                          fontSize: 16,
-                                          color: oPrimaryColor,
-                                        ),
-                                        textAlign: TextAlign.center,
+                                      child: Image.asset(
+                                        getStartedImagesPaths[index],
                                       ),
                                     ),
                                   ],

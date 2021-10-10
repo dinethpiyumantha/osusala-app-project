@@ -39,7 +39,7 @@ class NewsScreen extends StatelessWidget {
           ),
           alignment: Alignment.bottomCenter,
           builder: new DotSwiperPaginationBuilder(
-              color: Colors.grey, activeColor: oPrimaryColor),
+              color: oSecondaryColor, activeColor: oPrimaryColor),
         ),
       ),
     );
