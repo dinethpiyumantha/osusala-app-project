@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 import 'package:osusala/constraints.dart';
+import 'package:osusala/screens/news/components/news.dart';
 
 class NewsScreen extends StatelessWidget {
   @override
@@ -19,40 +20,26 @@ class NewsScreen extends StatelessWidget {
           },
         ),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Text(
-              'Lorem ipsum dolor sit amet.',
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                fontSize: 20,
-              ),
+      body: Swiper(
+        itemCount: 4,
+        itemWidth: MediaQuery.of(context).size.width,
+        layout: SwiperLayout.DEFAULT,
+        itemBuilder: (context, index) {
+          return Center(
+            child: Stack(
+              children: <Widget>[
+                News(index),
+              ],
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 20,
-                vertical: 0,
-              ),
-              child: Image.asset('assets/images/testslide.png'),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: 15,
-                horizontal: 50,
-              ),
-              child: Text(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet quam nec velit auctor tristique eu sed urna. Pellentesque non neque vel ipsum laoreet.',
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ],
+          );
+        },
+        pagination: SwiperPagination(
+          margin: EdgeInsets.only(
+            bottom: 20,
+          ),
+          alignment: Alignment.bottomCenter,
+          builder: new DotSwiperPaginationBuilder(
+              color: Colors.grey, activeColor: oPrimaryColor),
         ),
       ),
     );
