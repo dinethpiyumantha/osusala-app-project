@@ -71,6 +71,12 @@ flutter:
     - assets/locations.json
     - assets/images/devalgo.png
     - assets/images/mapmarker.png
+    - assets/images/o1.png
+    - assets/images/o2.png
+    - assets/images/o3.png
+    - assets/images/o4.png
+    - assets/images/filter.png
+    - assets/icons/man.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
