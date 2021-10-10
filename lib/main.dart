@@ -4,7 +4,11 @@ import 'package:osusala/screens/about.dart';
 import 'package:osusala/screens/home/home_screen.dart';
 import 'package:osusala/screens/location/location_map.dart';
 import 'package:osusala/screens/get_started/get_started.dart';
+import 'package:osusala/screens/login/login.dart';
+import 'package:osusala/screens/orders/orders.dart';
+import 'package:osusala/screens/registration/registration.dart';
 import 'package:osusala/screens/splash_screen.dart';
+import 'package:osusala/signout.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,6 +28,10 @@ class MyApp extends StatelessWidget {
         '/home': (context) => HomeScreen(),
         '/location': (context) => MapScreen(),
         '/about': (context) => About(),
+        '/signout': (context) => Signout(),
+        '/login': (context) => Login(),
+        '/registration': (context) => Registration(),
+        '/orders': (context) => Orders()
       },
       theme: ThemeData(
         scaffoldBackgroundColor: oLightColor,

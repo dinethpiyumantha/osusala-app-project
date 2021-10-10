@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 //Colors
 const oPrimaryColor = Color(0xff2f363d);
 const oSecondaryColor = Color(0xff8d8e8f);
-const oSuccessColor = Color(0xff00ce30);
-const oDangerColor = Color(0xffff6767);
+const oSuccessColor = Color(0xff00ce30); //Green
+const oDangerColor = Color(0xffff6767); //Red
 const oWhiteColor = Color(0xffffffff);
 const oLightColor = Color(0xffededed);
 const oDarkColor = Color(0xff24292e);

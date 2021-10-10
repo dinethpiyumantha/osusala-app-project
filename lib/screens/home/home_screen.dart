@@ -115,7 +115,9 @@ class _HomeScreenState extends State<HomeScreen>
                     child: SizedBox(
                       width: 150,
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pushReplacementNamed('/login');
+                        },
                         child: Row(
                           children: [
                             Icon(Icons.exit_to_app),
@@ -181,9 +183,14 @@ class _HomeScreenState extends State<HomeScreen>
             Align(
                 alignment: Alignment.centerRight,
                 child: CardButton('capsules.png', 'Products')),
-            Align(
-                alignment: Alignment.centerLeft,
-                child: CardButton('cartplus.png', 'Orders')),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/orders');
+              },
+              child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: CardButton('cartplus.png', 'Orders')),
+            ),
             Align(
                 alignment: Alignment.centerRight,
                 child: CardButton('chat.png', 'Chat')),
