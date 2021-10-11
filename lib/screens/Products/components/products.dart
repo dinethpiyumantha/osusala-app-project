@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:osusala/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:osusala/flutter_flow/flutter_flow_theme.dart';
-import 'package:page_transition/page_transition.dart';
+import 'package:page_transition/page_transition.dart'; 
 
-import '../../../constraints.dart';
+//import '../../../constraints.dart';
 import 'cart.dart';
 
 class Products extends StatefulWidget {
