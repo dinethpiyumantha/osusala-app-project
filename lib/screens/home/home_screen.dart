@@ -178,15 +178,26 @@ class _HomeScreenState extends State<HomeScreen>
                 ],
               ),
             ),
-            Align(
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/home_categories');
+              },
+              child: Align(
                 alignment: Alignment.centerRight,
-                child: CardButton('capsules.png', 'Products')),
+                child: CardButton('capsules.png', 'Products'),
+              ),
+            ),
             Align(
                 alignment: Alignment.centerLeft,
                 child: CardButton('cartplus.png', 'Orders')),
-            Align(
-                alignment: Alignment.centerRight,
-                child: CardButton('chat.png', 'Chat')),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/chat');
+              },
+              child: Align(
+                  alignment: Alignment.centerRight,
+                  child: CardButton('chat.png', 'Chat')),
+            ),
             Align(
                 alignment: Alignment.centerLeft,
                 child: CardButton('tag.png', 'Offers')),
@@ -207,6 +218,7 @@ class _HomeScreenState extends State<HomeScreen>
                   alignment: Alignment.centerLeft,
                   child: CardButton('userscog.png', 'Profile')),
             ),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
