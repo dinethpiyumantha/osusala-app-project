@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -17,6 +18,20 @@ class _MapScreenState extends State<MapScreen> {
     target: LatLng(7.503635739043013, 80.36395063286321),
     zoom: 11.5,
   );
+
+  late final dref = FirebaseDatabase.instance.reference();
+  late DatabaseReference databaseReference;
+  getMarkers() {
+    // GET data from firebase
+    // dref.once().then((snapshot) {
+    //   print(snapshot.value['gmakers']);
+    // });
+
+    dref.child('gmakers').once().then((snapshot) {
+      print(snapshot.value);
+      print('End ------------>');
+    });
+  }
 
   late GoogleMapController _googleMapController;
 
@@ -129,6 +144,7 @@ class _MapScreenState extends State<MapScreen> {
             initialCameraPosition: _initialCameraPosition,
             onMapCreated: (GoogleMapController controller) {
               _googleMapController = controller;
+              getMarkers();
               setMarkers();
               changeMapMode();
             },
