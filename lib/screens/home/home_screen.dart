@@ -187,9 +187,16 @@ class _HomeScreenState extends State<HomeScreen>
             Align(
                 alignment: Alignment.centerRight,
                 child: CardButton('chat.png', 'Chat')),
-            Align(
+
+                 GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/offers');
+              },
+           child:Align(
                 alignment: Alignment.centerLeft,
-                child: CardButton('tag.png', 'Offers')),
+                child: CardButton('tag.png', 'Offers'),
+                ),
+              ),
             GestureDetector(
               onTap: () {
                 Navigator.pushNamed(context, '/location');
@@ -201,7 +208,7 @@ class _HomeScreenState extends State<HomeScreen>
             ),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, '/location');
+                Navigator.pushNamed(context, '/profile');
               },
               child: Align(
                   alignment: Alignment.centerLeft,
