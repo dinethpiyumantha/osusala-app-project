@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "401840115601",
+    "project_id": "osusala-321809",
+    "storage_bucket": "osusala-321809.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:401840115601:android:39f9e84e15f72772691430",
+        "android_client_info": {
+          "package_name": "edu.devalgo.osusala"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "401840115601-n6rofmp7a2sova1cfslgb3r7ab334rot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXr1LUbLRxbp1TDdD7no6i2NYwpR8MsV8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "401840115601-n6rofmp7a2sova1cfslgb3r7ab334rot.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
