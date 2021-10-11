@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:osusala/constraints.dart';
 import 'package:osusala/screens/about.dart';
@@ -5,6 +7,7 @@ import 'package:osusala/screens/home/home_screen.dart';
 import 'package:osusala/screens/location/location_map.dart';
 import 'package:osusala/screens/get_started/get_started.dart';
 import 'package:osusala/screens/login/login.dart';
+import 'package:osusala/screens/orders/deletedOrders.dart';
 import 'package:osusala/screens/orders/orders.dart';
 import 'package:osusala/screens/registration/registration.dart';
 import 'package:osusala/screens/splash_screen.dart';
@@ -31,7 +34,8 @@ class MyApp extends StatelessWidget {
         '/signout': (context) => Signout(),
         '/login': (context) => Login(),
         '/registration': (context) => Registration(),
-        '/orders': (context) => Orders()
+        '/orders': (context) => Orders(),
+        '/deletedOrders': (context) => DeletedOrders()
       },
       theme: ThemeData(
         scaffoldBackgroundColor: oLightColor,

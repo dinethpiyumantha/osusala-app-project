@@ -1,8 +1,11 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:osusala/constraints.dart';
 
-class Orders extends StatelessWidget {
+class DeletedOrders extends StatelessWidget {
+  const DeletedOrders({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,62 +117,6 @@ class Orders extends StatelessWidget {
                           Padding(padding: EdgeInsets.only(top: 80, right: 20)),
                           Text('Recieved'),
                           Icon(Icons.delete),
-                        ],
-                      ),
-                    ],
-                  ),
-                  padding: EdgeInsets.only(top: 20, right: 10, left: 10),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 20),
-              ),
-              Text(
-                '2021 October, 5',
-                textAlign: TextAlign.left,
-                overflow: TextOverflow.ellipsis,
-                style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 20),
-              ),
-              Container(
-                width: 350.0,
-                height: 200.0,
-                decoration: new BoxDecoration(
-                  color: Colors.lightGreen[100],
-                  shape: BoxShape.rectangle,
-                ),
-                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                child: Padding(
-                  child: Row(
-                    children: [
-                      Column(
-                        children: [
-                          Image.asset(
-                            'assets/images/prescription.png',
-                            width: 140,
-                          ),
-                          Text('prescription2.png'),
-                        ],
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Column(
-                        children: [
-                          Padding(padding: EdgeInsets.only(top: 80, right: 20)),
-                          Text('Recieved'),
-                          IconButton(
-                            icon: Icon(
-                              Icons.delete,
-                              color: oPrimaryColor,
-                            ),
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/deletedOrders');
-                            },
-                          ),
                         ],
                       ),
                     ],
