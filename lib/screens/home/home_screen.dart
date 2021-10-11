@@ -186,9 +186,14 @@ class _HomeScreenState extends State<HomeScreen>
                 ],
               ),
             ),
-            Align(
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/home_categories');
+              },
+              child: Align(
                 alignment: Alignment.centerRight,
-                child: CardButton('capsules.png', 'Products')),
+                child: CardButton('capsules.png', 'Products'),
+              ),),
             GestureDetector(
               onTap: () {
                 Navigator.pushNamed(context, '/orders');
@@ -206,10 +211,24 @@ class _HomeScreenState extends State<HomeScreen>
                 Navigator.pushNamed(context, '/offers');
               },
            child:Align(
+                child: CardButton('capsules.png', 'Products'),
+              ),
+            ),
+            Align(
+                alignment: Alignment.centerLeft,
+                child: CardButton('cartplus.png', 'Orders')),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/chat');
+              },
+              child: Align(
+                  alignment: Alignment.centerRight,
+                  child: CardButton('chat.png', 'Chat')),
+            ),
+            Align(
                 alignment: Alignment.centerLeft,
                 child: CardButton('tag.png', 'Offers'),
                 ),
-              ),
             GestureDetector(
               onTap: () {
                 Navigator.pushNamed(context, '/location');
@@ -227,6 +246,7 @@ class _HomeScreenState extends State<HomeScreen>
                   alignment: Alignment.centerLeft,
                   child: CardButton('userscog.png', 'Profile')),
             ),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[

@@ -41,7 +41,17 @@ dependencies:
   firebase_analytics: ^8.2.0
   firebase_auth: ^3.0.1
   firebase_database: ^7.1.2
-
+  provider: ^6.0.1 #for State management
+  google_fonts: ^2.1.0
+  auto_size_text:
+  font_awesome_flutter:  
+  geolocator: 7.6.2
+  intl:
+  timeago:
+  url_launcher:
+  json_path: ^0.2.1
+  cloud_firestore: ^2.5.3
+  page_transition: ^2.0.4
 
 dev_dependencies:
   flutter_test:
@@ -60,6 +70,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/images/
+    - assets/icons/
     - assets/images/dark-logo@2x.png
     - assets/icons/capsules.png
     - assets/icons/cartplus.png
@@ -89,6 +101,9 @@ flutter:
     - assets/images/prescription.png
     - assets/images/camera.png
     - assets/images/cameraAdd.png
+    - assets/images/pro3.jpg
+    - assets/images/ayu.jpg
+    - assets/images/products_first.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

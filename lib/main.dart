@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:osusala/constraints.dart';
+import 'package:osusala/screens/Products/components/products.dart';
 import 'package:osusala/screens/about.dart';
 import 'package:osusala/screens/home/home_screen.dart';
 import 'package:osusala/screens/location/location_map.dart';
@@ -15,8 +16,11 @@ import 'package:osusala/screens/orders/deletedOrders.dart';
 import 'package:osusala/screens/orders/orders.dart';
 import 'package:osusala/screens/orders/ordersPopup.dart';
 import 'package:osusala/screens/registration/registration.dart';
-import 'package:osusala/screens/splash_screen.dart';
 import 'package:osusala/signout.dart';
+import 'package:osusala/screens/Products/home_categories.dart';
+
+import 'screens/Products/components/cart.dart';
+import 'screens/chat/components/chat.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,7 +50,11 @@ class MyApp extends StatelessWidget {
         '/registration': (context) => Registration(),
         '/orders': (context) => Orders(),
         '/deletedOrders': (context) => DeletedOrders(),
-        '/ordersPopup': (context) => OrdersPopup()
+        '/ordersPopup': (context) => OrdersPopup(),
+        '/home_categories': (context) => CategoriesMenu(),
+        '/Products': (context) => Products(),
+        '/chat': (context) => Chat(),
+        '/cart': (context) => Cart(),
       },
       theme: ThemeData(
         scaffoldBackgroundColor: oLightColor,
