@@ -27,15 +27,16 @@ class Registration extends StatelessWidget {
         ),
       ),
       body: Container(
-        padding: EdgeInsets.all(50),
+        padding: EdgeInsets.all(20),
         color: oLightColor,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Center(
           child: Column(
             children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(top: 20),
+              Image.asset(
+                'assets/images/cameraAdd.png',
+                height: 90,
               ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),

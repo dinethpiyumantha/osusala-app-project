@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:osusala/constraints.dart';
 
-class Orders extends StatelessWidget {
+class OrdersPopup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,6 +124,55 @@ class Orders extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(top: 20),
               ),
+              Container(
+                width: 300.0,
+                height: 120.0,
+                decoration: new BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(),
+                  shape: BoxShape.rectangle,
+                ),
+                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                child: Padding(
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          Text('Are you sure to clear the order?'),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              // ignore: deprecated_member_use
+                              FlatButton(
+                                child: Text('Cancel'),
+                                color: Colors.black12,
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/orders');
+                                },
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              // ignore: deprecated_member_use
+                              FlatButton(
+                                child: Text('Delete'),
+                                color: Colors.red,
+                                onPressed: () {
+                                  Navigator.pushNamed(
+                                      context, '/deletedOrders');
+                                },
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  padding: EdgeInsets.only(top: 20, right: 10, left: 10),
+                ),
+              ),
               Text(
                 '2021 October, 5',
                 textAlign: TextAlign.left,
@@ -166,9 +215,7 @@ class Orders extends StatelessWidget {
                               Icons.delete,
                               color: oPrimaryColor,
                             ),
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/ordersPopup');
-                            },
+                            onPressed: () {},
                           ),
                         ],
                       ),

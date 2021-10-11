@@ -74,6 +74,8 @@ flutter:
     - assets/images/devalgo.png
     - assets/images/mapmarker.png
     - assets/images/prescription.png
+    - assets/images/camera.png
+    - assets/images/cameraAdd.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

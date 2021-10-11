@@ -9,6 +9,7 @@ import 'package:osusala/screens/get_started/get_started.dart';
 import 'package:osusala/screens/login/login.dart';
 import 'package:osusala/screens/orders/deletedOrders.dart';
 import 'package:osusala/screens/orders/orders.dart';
+import 'package:osusala/screens/orders/ordersPopup.dart';
 import 'package:osusala/screens/registration/registration.dart';
 import 'package:osusala/screens/splash_screen.dart';
 import 'package:osusala/signout.dart';
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
         '/login': (context) => Login(),
         '/registration': (context) => Registration(),
         '/orders': (context) => Orders(),
-        '/deletedOrders': (context) => DeletedOrders()
+        '/deletedOrders': (context) => DeletedOrders(),
+        '/ordersPopup': (context) => OrdersPopup()
       },
       theme: ThemeData(
         scaffoldBackgroundColor: oLightColor,
