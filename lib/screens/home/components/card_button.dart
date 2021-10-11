@@ -49,24 +49,24 @@ class CardButton extends StatelessWidget {
   }
 }
 
-// Card Menu Widget by using multiple Single Card Widgets
-class CardMenu extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return GridView(
-      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 50),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 0,
-      ),
-      children: <Widget>[
-        Center(child: CardButton('capsules.png', 'Products')),
-        Center(child: CardButton('cartplus.png', 'Orders')),
-        Center(child: CardButton('chat.png', 'Chat')),
-        Center(child: CardButton('tag.png', 'Offers')),
-        Center(child: CardButton('location.png', 'Locations')),
-        Center(child: CardButton('userscog.png', 'Profile')),
-      ],
-    );
-  }
-}
+// // Card Menu Widget by using multiple Single Card Widgets
+// class CardMenu extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return GridView(
+//       padding: EdgeInsets.symmetric(vertical: 5, horizontal: 50),
+//       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//         crossAxisCount: 2,
+//         mainAxisSpacing: 0,
+//       ),
+//       children: <Widget>[
+//         Center(child: CardButton('capsules.png', 'Products')),
+//         Center(child: CardButton('cartplus.png', 'Orders')),
+//         Center(child: CardButton('chat.png', 'Chat')),
+//         Center(child: CardButton('tag.png', 'Offers')),
+//         Center(child: CardButton('location.png', 'Locations')),
+//         Center(child: CardButton('userscog.png', 'Profile')),
+//       ],
+//     );
+//   }
+// }
