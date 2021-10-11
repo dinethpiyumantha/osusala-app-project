@@ -69,6 +69,7 @@ flutter:
     - assets/icons/location.png
     - assets/icons/tag.png
     - assets/icons/userscog.png
+    - assets/icons/delete.png
     - assets/images/testslide.png
     - assets/images/greenlogo.png
     - assets/map_light.json
@@ -85,6 +86,9 @@ flutter:
     - assets/images/getstarted/2.jpg
     - assets/images/getstarted/3.jpg
     - assets/images/getstarted/4.jpg
+    - assets/images/prescription.png
+    - assets/images/camera.png
+    - assets/images/cameraAdd.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

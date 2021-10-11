@@ -112,7 +112,7 @@ class GetStartedScreen extends StatelessWidget {
             width: MediaQuery.of(context).size.width - 2 * 20,
             child: TextButton(
               onPressed: () {
-                Navigator.of(context).pushReplacementNamed('/home');
+                Navigator.of(context).pushReplacementNamed('/login');
               },
               style: ButtonStyle(
                 backgroundColor:
